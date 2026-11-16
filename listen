@@ -1,0 +1,7 @@
+# AtomicBombTV - Control Remoto Global (PC y Android)
+# Sube este archivo llamado "listen" a la raiz del repositorio en GitHub (rama main).
+# Valores permitidos:
+#   block=0  -> Aplicacion habilitada normalmente
+#   block=1  -> Aplicacion bloqueada remotamente en todos los dispositivos
+block=0
+reason=Acceso suspendido remotamente por AtomicBombTV por riesgo legal o mantenimiento de seguridad.
