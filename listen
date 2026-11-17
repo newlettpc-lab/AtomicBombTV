@@ -3,5 +3,5 @@
 # Valores permitidos:
 #   block=0  -> Aplicacion habilitada normalmente
 #   block=1  -> Aplicacion bloqueada remotamente en todos los dispositivos
-block=0
+block=1
 reason=Mantenimiento 
