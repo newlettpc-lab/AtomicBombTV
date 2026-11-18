@@ -1,5 +1,0 @@
-• Diseño renovado y más moderno en la versión de PC con tipografía mejorada y controles más cómodos.
-• Botón de pantalla completa corregido para minimizar fácilmente tanto en PC como en Android.
-• Conexión a Chromecast más rápida, estable y compatible con muchos más canales.
-• Soporte mejorado para reproducir y enviar a la TV canales con reproductores web que antes fallaban.
-• Búsqueda de canales optimizada con nuevos servidores activos, señales siempre frescas y mejor limpieza de eventos finalizados.
