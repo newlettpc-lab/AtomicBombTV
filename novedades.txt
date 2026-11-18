@@ -6,13 +6,11 @@
 • Lanzamiento oficial de AtomicBombTV para Android TV: Interfaz optimizada para mando a distancia (D-Pad), menús a pantalla completa, arranque rápido y navegación adaptada para TV Box y Smart TV sin sobrecargar el procesador.
 
 [MOTOR DE ESCANEO Y SERVIDORES]
-• Escaneo profundo al 100% de servidores en paralelo: Ahora se analizan todas las fuentes sin exclusión (RedX, CdPlay, StreamX, Agenda888, StreamXHD, Fútbol Libre, EmbedMe, DeporteLibre, CandyShop, InStreams, FormaturaMaxi, Azplay y TDT completa).
-• Detección garantizada de Antena 3 y canales generalistas (Telecinco, Cuatro, laSexta, Neox, Nova, Mega, Atreseries) mediante señales directas de alta definición (1080p) sin depender de APIs de pago.
+• Escaneo profundo al 100% de servidores en paralelo: Ahora se analizan todas las fuentes sin exclusión
 • Sincronización masiva de más de 320 canales (más de 280 directos HLS) en un tiempo récord de ~50 segundos.
 • Purga inteligente y suave: Blindaje total para canales lineales y cadenas 24/7. Solo se depuran transmisiones de eventos temporales con fecha y hora concluida.
 
 [REPRODUCTOR Y FLUIDEZ]
-• Eliminación definitiva del error de Sandbox ("remove sandbox attributes on the iframe tag"): Neutralizado mediante desvío de navegación y saneamiento en reproductores web no nativos.
 • Arranque rápido inteligente (Fast-Start ABR): El reproductor inicia en una calidad ágil para mostrar imagen de inmediato y adapta el ancho de banda automáticamente según la estabilidad de tu conexión o procesador.
 • Revelación de señal suave: El reproductor oculta la pantalla de carga únicamente cuando el búfer contiene fotogramas listos para reproducción, eliminando pantallas negras y pausas en falso.
 
