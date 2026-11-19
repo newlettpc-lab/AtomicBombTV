@@ -3,5 +3,5 @@
 # Valores permitidos:
 #   block=0  -> Aplicacion habilitada normalmente
 #   block=1  -> Aplicacion bloqueada remotamente en todos los dispositivos
-block=1
+block=0
 reason= Se han detectado varios bugs en AtomicBombTV que hacen la aplicación inutilizable, estoy trabajando para volver a poner a funcionar la aplicación. En cuanto acabe, Android / Android TV serán actualizadas a la version 1.9.1. Disculpad las molestias.
