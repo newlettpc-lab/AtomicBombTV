@@ -10,7 +10,6 @@
 • Blindaje absoluto de canales de motor en el filtro de purga inteligente: DAZN F1, Sky Sports F1 y señales de motor nunca son eliminadas tras el análisis.
 
 [MOTOR DE ESCANEO ULTRA RÁPIDO V1.8]
-• Restaurado el motor analizador multi-hilo de la v1.8 calibrado para máxima compatibilidad:
   - Con VPN: 349 canales encontrados en apenas ~15 segundos.
   - Sin VPN: 244 canales abiertos encontrados en ~9 segundos.
 • Sin saturación de ancho de banda ni cuellos de botella en redes Wi-Fi de Android TV Box.
@@ -20,8 +19,3 @@
 • Eliminación completa de alertas y bloqueos de sandbox en reproductores no nativos.
 • Arranque rápido optimizado (Fast-Start) con carga progresiva para evitar pantallas negras.
 • Sincronización idéntica entre las 3 plataformas: PC Windows, Android Móvil y Android TV.
-
-[DISTRIBUCIÓN Y PAQUETES]
-• Android Móvil: AtomicBombTV-Mobile-1.9.1.apk (Firma de esquema v2 verificada).
-• Android TV: AtomicBombTV-TV-1.9.1.apk (Optimizado para mando a distancia D-Pad).
-• PC Windows: AtomicBombTV 1.9.zip (Portable, sin instalación).
