@@ -1,0 +1,68 @@
+===================================================================
+ATOMICBOMB TV - HISTORIAL DE VERSIONES Y NOVEDADES
+===================================================================
+
+[Versión 1.9.2 (Build 21) - Adaptación de Reproductores No Nativos y Actualizador Blindado]
+Fecha: 26 de Noviembre de 2026
+
+Novedades y Correcciones Clave:
+1. Adaptación Total de Reproductores Web No Nativos (Erradicación del Error Iframe Sandbox):
+   - Erradicado el mensaje "Please remove sandbox attributes on the iframe tag" en canales basados en reproductores externos (Xstream, JWPlayer, StreamX, CDPlay, EmbedMe, etc.).
+   - Descubierta y subsanada la causa raíz del falso positivo de sandbox:
+     · Se eliminó la inyección que forzaba 'window.top !== window.self', permitiendo que la ventana nativa de TV funcione como documento raíz legítimo.
+     · Habilitado soporte de múltiples ventanas con sumidero de popups silencioso ('onCreateWindow'): las pruebas que hacen los scripts para detectar restricciones de sandbox con 'window.open()' ahora reciben confirmación inmediata de éxito, evitando que el reproductor active el modo de error o bloquee el vídeo.
+     · Restaurada la carga de librerías P2P / Swarmcloud (@swarmcloud/hls y jwplayer.hlsjs) que los reproductores web modernos necesitan para inicializar la reproducción sin excepciones en tiempo de ejecución.
+     · Añadido soporte de descompresión GZIP y Deflate automática en las peticiones HTTP y en la sanitización HTML del WebView, permitiendo extraer flujos limpios y renderizar las páginas sin corrupción de datos binarios.
+   - Eliminado el descarte preventivo que bloqueaba canales web de fuentes dinámicas (streamx, xstream, sofayshop, etc.): ahora todos los canales se intentan reproducir en el visor nativo adaptado con arranque y desmuteo automático para mando a distancia D-Pad.
+
+2. Auditoría en Vivo de Servidores y Fuentes:
+   - Verificados los servidores activos en tiempo real: RedX (F1/LaLiga/MotoGP), Mediaset Google DAI, FutbolLibre Diaries (wqxag), StreamXHD, StreamX Agenda, DeporteLibre, EmbedMe, PPV Streams y ESPN Scoreboard (Oracle).
+
+3. Discriminación Estricta de Paquetes en el Actualizador Automático:
+   - Resuelto el problema por el cual la versión Android Móvil descargaba el archivo ZIP de PC o el APK de TV al pulsar "Descargar actualización".
+   - Cada plataforma ahora cuenta con filtros dedicados, seguros y mutuamente excluyentes en la comprobación de versiones en GitHub (Releases, Contents API y fallback web):
+     · PC (Windows): Descarga exclusivamente su paquete ZIP ('AtomicBombTV 1.9.2.zip'). Rechaza cualquier archivo .apk.
+     · Android Móvil: Descarga exclusivamente su paquete APK de móvil ('AtomicBombTV-Mobile-1.9.2.apk'). Rechaza archivos .zip y APKs con etiquetas de TV.
+     · Android TV: Descarga exclusivamente su paquete APK de televisión ('AtomicBombTV-TV-1.9.2.apk'). Rechaza archivos .zip y APKs de móvil.
+   - Decodificación y limpieza de URLs (soporte para espacios codificados como %20 y parámetros query) para evitar fallos de emparejamiento.
+
+2. Pruebas de Validación Cruzada:
+   - Verificadas las 3 versiones en simulación de descarga y comprobación de versión con 100% de aislamiento.
+   - Binarios de Android Mobile y Android TV firmados con APK Signature Scheme v2 (Target SDK 34 / Android 14).
+   - Paquete portable de PC actualizado y sincronizado a la versión 1.9.2.
+
+===================================================================
+[Versión 1.9.1 (Build 20) - Actualización Fresh Tokens Android TV]
+Fecha: 20 de Noviembre de 2026
+
+Novedades y Correcciones Clave para Android TV:
+1. Comprobación y Reemplazo Automático de Tokens HLS Fresh en el Arranque:
+   - Al arrancar la aplicación, se ejecuta un pase en paralelo ultrarrápido (48 hilos, ~1.2s) que audita todas las fuentes dinámicas.
+   - Si un canal se encuentra en emisión activa (Mediaset Google DAI, Atresmedia API, StreamX, StreamXHD, Xstream, CDPlay, RedX), la app solicita y reemplaza instantáneamente el token fresco (.m3u8), garantizando reproducción directa sin cortes y que los enlaces nunca caigan mientras sigan emitiendo.
+   - Para canales fuera de emisión (ej. DAZN MotoGP cuando no hay gran premio o carreras en curso), se preserva la ruta de resolución limpia: si el usuario entra, la app muestra la tarjeta nativa de TV con opciones de reintento, siguiente canal y guía, sin pantallazos de error.
+
+2. Erradicación del error 'Sandbox Iframe' ("remove sandbox attributes on the iframe tag"):
+   - Identificada la causa raíz: los canales web embed que no resolvían HLS o estaban fuera de emisión abrían un WebView donde los scripts anti-embed de servidores externos redirigían a '/sandbox.html'.
+   - Nuevo extractor y decodificador directo en segundo plano: desobfuscación nativa de flujos HLS para StreamX, StreamXHD, Xstream/Embedme y CDPlay.
+   - Si un canal se encuentra fuera de emisión o la fuente web está temporalmente caída, la app NUNCA abre trampas de iframe ni páginas con sandbox: muestra una tarjeta OSD nativa de TV indicando "Canal sin emisión en directo en este momento" con opciones para reintentar, zapping o abrir la guía, con total fluidez de mando a distancia.
+   - Detección y bloqueo a nivel de WebView: cualquier intento de salto a URLs con 'sandbox' o 'block.html' es interceptado y cerrado de inmediato, evitando pantallas congeladas.
+
+3. Aceleración Ultra Rápida de Canales Deportivos VIP:
+   - Movistar LaLiga, DAZN F1, DAZN 1, Movistar Deportes, Movistar Golf, Eurosport 1 y Eurosport 2 ahora conectan directamente por enlace HLS ultra-rápido (latencia de conexión ~500ms).
+   - Eliminados tokens estáticos caducados en la lista base.
+   - Soporte multiespejo para DAZN MotoGP con resolución dinámica y conmutación entre servidores.
+   - Protección total de canales lineales y deportivos contra purgado de agenda.
+
+4. Pantalla de Bienvenida y Arranque Instantáneo:
+   - Nueva animación de presentación con el logotipo oficial de AtomicBombTV en alta resolución.
+   - Comprobador de versiones y disponibilidad optimizado con timeout estricto de 2.2 segundos para que la app nunca se quede atascada al abrir.
+
+5. Limpieza de Mojibake y Caracteres Especiales:
+   - Sanitizada toda la base de canales con codificación UTF-8 limpia (España, Fútbol, Opción, etc.).
+
+===================================================================
+Archivos listos para instalar:
+- Android TV: AtomicBombTV-TV-1.9.2.apk (Fácil instalación en Chromecast, FireTV o Smart TV con Android TV)
+- Android Móvil: AtomicBombTV-Mobile-1.9.2.apk (Instalación en smartphones y tablets)
+- PC Windows: AtomicBombTV 1.9.2.zip (Versión portable para Windows)
+===================================================================
